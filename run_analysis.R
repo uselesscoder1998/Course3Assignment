@@ -1,7 +1,6 @@
 # Load the package
 library(dplyr)
 # Download the file
-path <- getwd()
 fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileURL, file.path(path,"datafiles.zip"))
 unzip(zipfile = "datafiles.zip")
@@ -10,9 +9,9 @@ features <- read.table("UCI HAR Dataset/features.txt"),col.names = c("index","fe
 activitylabels <- read.table("UCI HAR Dataset/activity_labels.txt"),col.names = c("n","activities"))
 subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt"),col.names = "subject")
 subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt"),col.names = "subject")
-x_test <- read.table("UCI HAR Dataset/test/X_test.txt"),col.names = features$functions)
+x_test <- read.table("UCI HAR Dataset/test/X_test.txt"),col.names = features$featureNames)
 y_test <- read.table("UCI HAR Dataset/test/y_test.txt"),col.names = "n")
-x_train <-read.table("UCI HAR Dataset/train/X_train.txt"),col.names = features$functions)
+x_train <-read.table("UCI HAR Dataset/train/X_train.txt"),col.names = features$featureNames)
 y_train <- read.table("UCI HAR Dataset/train/y_train.txt"),col.names = "n")
 # Merge all the test and training sets
 X <- rbind(x_test,x_train)
